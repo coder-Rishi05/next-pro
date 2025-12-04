@@ -50,15 +50,58 @@
 
 Next.js = Fast, flexible, production-ready React framework. Ideal for SEO, performance, and scalable web apps.
 
-----
+---
 
 ### Creating first app
 
-to install next js
-    - npx create-next-app@latest
+to install next js - npx create-next-app@latest
 
-to run 
-    - npm run dev
+to run - npm run dev
 
-* hydration error : when we have any extention which modify dom and when we work on dev mode in next it give this error.
+- hydration error : when we have any extention which modify dom and when we work on dev mode in next it give this error.
 
+---
+
+# diffrence b/w react and next
+
+- Next js
+
+1. Next js is server side rendered.
+2. all the content come from servrer and rendered.
+3. page.js is main file.
+4. in next js when code converted to js then it is converted to plain html and this code send as html to the browser.
+5. if i want to run my code then i must use
+
+```js
+"use client";
+```
+
+6. now it is client code and also will run on both server and client.
+7. if i dont use then i cant add event listners on it and it will throgh error.
+8. this is dynamic server it execute react code on server.
+9. it improve seo as in react we sent empty html and the content is appended through js whereas next js first convert code to js then to html pages.
+10. faster loadtime : when it serve the html it directly serve not append
+11. the browser load is reduced as browser dont creat the tags.
+
+ex:
+
+```js
+
+    <h4 onClick={() => console.log("say hi")}>Click me</h4>
+
+s: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <h4 onClick={function onClick} children=...>
+              ^^^^^^^^^^^^^^^^^^
+
+```
+
+- react js
+
+1. react app is cliet side rendered.
+2. data is appended by js.
+3. the react using vite is just static server.
+4. it is serving the html css and js.
+5. all react code got converted into js by Babel and then rendred on pages.
+6. it is static server just serve the pages
+7. slow load time : as data is appended by js.
