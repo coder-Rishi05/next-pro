@@ -4,7 +4,15 @@ function services() {
   return (
     <div>
       <h2>This is services page.</h2>
+      <p>
         <Link href="/">Go back to home</Link>
+      </p>
+      <p>
+        <Link href="./web-dev/">Webdevlopment</Link>
+      </p>
+      <p>
+        <Link href="/">App design</Link>
+      </p>
     </div>
   );
 }
