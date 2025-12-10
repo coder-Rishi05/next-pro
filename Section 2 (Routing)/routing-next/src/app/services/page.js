@@ -8,7 +8,7 @@ function services() {
         <Link href="/">Go back to home</Link>
       </p>
       <p>
-        <Link href="./web-dev/">Webdevlopment</Link>
+       
       </p>
       <p>
         <Link href="/">App design</Link>
