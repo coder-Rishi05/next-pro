@@ -1,20 +1,37 @@
-import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home({ params, searchParams }) {
+  console.log(await searchParams);
+  console.log(await params);
+
+  {
+    /*
+
+    these are empty objects
+    seach params get value when we write in url 
+    ex: 
+    http://localhost:3000/?name=Rishabh&age=21
+    {name: 'Rishabh', age: '21'}
+
+    these resiseds in every components.
+
+    
+
+ * */
+  }
+
   return (
-    <div>
-      <h1>Technical agency</h1>
-      <h2>
+    <>
+      <h1>Technical Agency</h1>
+      <p>
+        <Link href="/blogs">Blogs</Link>
+      </p>{" "}
+      <p>
         <Link href="/about">About</Link>
-      </h2>
-      <Link href="/services">services</Link>
+      </p>{" "}
       <p>
-        <Link href="/services/web-dev">All services</Link>
+        <Link href="/services">Services</Link>
       </p>
-      <p>
-        <Link href="/services/Seo">Seo</Link>
-      </p>
-    </div>
+    </>
   );
 }

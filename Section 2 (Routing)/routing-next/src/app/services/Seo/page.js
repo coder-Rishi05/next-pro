@@ -1,15 +1,7 @@
-import Link from "next/link";
-import React from "react";
-
-const Seo = () => {
+export default function WebDev() {
   return (
-    <div>
-      <h1> SEO Services</h1>
-      <p>
-        <Link href="/">Go home</Link>
-      </p>
-    </div>
+    <>
+      <h1>SEO Services</h1>
+    </>
   );
-};
-
-export default Seo;
+}

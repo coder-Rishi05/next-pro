@@ -123,6 +123,71 @@ on services page
     <Link href="/services/Seo">Seo</Link>
   </p>
 </div>
-
 ```
+
 also the folder name is case sensitive in this type of routing.
+
+# Dynamic routing :
+
+dynamic routes mean multiple blogs page inside main blog
+
+to do so we create a folder inside the blog folder but that name should start with [anyName]
+
+ex:
+
+      blogs folder name
+        [blog] folder name => anything written inside [] is called slug
+          page.js file name
+
+          ```js
+              import React from "react";
+
+              async function page1({ params }) {
+                console.log(await params);
+                return <div>This is child blog1</div>;
+              }
+
+              export default page1;
+
+          ```
+-  yhan url me agr hm ye type kren to ye child page pe le jaaega or vhan parama ki value
+
+-      http://localhost:3000/blogs/sim
+
+     {blog: 'sim'}
+     [folder] name : jo url me dala
+
+whenever we make components then in every components we receive props
+
+```js
+import Link from "next/link";
+
+export default function Home(props) {
+  console.log(props);
+  return (
+    <>
+      <h1>Technical Agency</h1>
+      <p>
+        <Link href="/blogs">Blogs</Link>
+      </p> <p>
+        <Link href="/about">About</Link>
+      </p> <p>
+        <Link href="/services">Services</Link>
+      </p>
+    </>
+  );
+}
+```
+
+```js
+export default function Home(props) {
+  console.log(props);
+}
+```
+
+### props
+
+- it have bydefault 2 values params and search params.
+- both are promises.
+
+to acess the searchparams we can use .then() or async await
