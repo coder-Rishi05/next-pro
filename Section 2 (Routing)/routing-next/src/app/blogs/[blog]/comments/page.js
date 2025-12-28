@@ -1,14 +1,11 @@
 import React from "react";
 
-async function page1({ params }) {
+export default async function page1({ params }) {
   console.log(await params);
   const { blog } = await params;
   return (
     <div>
-      <h1>This is child blog1</h1>
-      <p>Blog id : {blog}</p>
+      <p>all comments on : {blog} page</p>
     </div>
   );
 }
-
-export default page1;

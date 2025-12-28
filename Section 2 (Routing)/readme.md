@@ -142,20 +142,29 @@ ex:
           ```js
               import React from "react";
 
-              async function page1({ params }) {
-                console.log(await params);
-                return <div>This is child blog1</div>;
-              }
+            async function page1({ params }) {
+            console.log(await params);
+            const { blog } = await params;
+            return (
+            <div>
+            <h1>This is child blog1</h1>
+            <p>Blog id : {blog}</p>
+            </div>
+            );
+            }
 
-              export default page1;
+            export default page1;
+            // basically now we can go to any no. of route from here
+            // http://localhost:3000/blogs/1 http://localhost:3000/blogs/2 ect.
 
           ```
--  yhan url me agr hm ye type kren to ye child page pe le jaaega or vhan parama ki value
+
+- yhan url me agr hm ye type kren to ye child page pe le jaaega or vhan parama ki value
 
 -      http://localhost:3000/blogs/sim
 
-     {blog: 'sim'}
-     [folder] name : jo url me dala
+  {blog: 'sim'}
+  [folder] name : jo url me dala
 
 whenever we make components then in every components we receive props
 
@@ -191,3 +200,24 @@ export default function Home(props) {
 - both are promises.
 
 to acess the searchparams we can use .then() or async await
+
+### Nested Dynamic routes
+
+- adding comments feature on blog.
+- we will create another directory named comments inside [blog]
+- and inside the [comments] we will we will create page.js
+
+- folder structure :
+
+```pgsql
+
+blogs
+
+  [blog]
+  page.js
+    comments
+      page.js
+
+```
+
+basically in `next js ` this is a rule that for routing the child folder file name must be `page.js`
