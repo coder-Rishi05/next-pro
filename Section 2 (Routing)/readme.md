@@ -221,3 +221,109 @@ blogs
 ```
 
 basically in `next js ` this is a rule that for routing the child folder file name must be `page.js`
+
+- to create a nested dynamic route it's bery simple just do this folder structure
+
+```bash
+  blogs
+    [blog]
+      page.js
+      commnets
+        page.js
+        [commentsID]
+            page.js
+
+```
+
+![alt text](image.png)
+
+---
+
+# Catch all routes
+
+- creating a diffrent functionality like koi esa path images/png/test etc for file mamager.
+- jis bhi path pr user jaa rha hai vo path show krenge error nhi aana chahiye
+- this is dynamic route we can go to any page using this route. also can catch all types of nested routes. basically hardcoded nhi hota.
+- iske liye hm app me special folder bnaenge
+  [...filePath] : name kuch bhi ho skta hai bs `...` se start hona chahiye.
+- then page.js file
+
+ex:
+
+```js
+import React from "react";
+
+async function File({ params }) {
+  console.log(await params);
+  const { filePath } = await params; // this gives array
+  // jo bhi url pe as / likhnge routes me vo values filePath me as array values aa jaaengi.
+  //   filePath: ['images.png'] // yhan file path isliye hai kyonki folder ka name filePath hai.
+
+  return (
+    <div>
+      <h1>This is catch all rutes</h1>
+      <p>
+        Blog id : <i> {filePath.join("/")}</i>{" "}
+      </p>
+    </div>
+  );
+}
+
+export default File;
+```
+
+- here we can seperate path by creating a files folder and then inside that create catch all routes
+
+```bash
+  files
+  page.js
+    [...filePath]
+      page.js
+
+```
+
+- now here we can create a page.js on files folder so that if user fo to files it should not give error.
+
+or we can use `optional catch all routes`.
+
+### optional catch routes
+
+esa krne ke liye hm [...filePath] ko nested [[...filePath]] me likh skte han.
+
+```bash
+  files
+   [[...filePath]]
+      page.js
+
+```
+
+now agr ab user files pe jata hao to 404 ki jagah vo directly [[...filePath]] ke ander jo page.js hai vo load krega.
+
+```js
+import React from "react";
+
+async function File({ params }) {
+  console.log(await params);
+  const { filePath } = await params;
+  //   filePath: ['images.png']
+
+  return (
+    <div>
+      <h1>This is catch all rutes</h1>
+      <p>
+        Blog id : <i> {filePath?.join("/")}</i>{" "}
+      </p>
+      {/* this is dynamic route we can go to any page using this route. also can catch all types of nested routes. */}
+    </div>
+  );
+}
+
+export default File;
+```
+
+yhan hm optional routes ko same level pe nhi rkh skte means ab mai root level app ke ander optional routes nhi bna skta.
+
+root level pe optional catch wala route define krenge to vo / route ke sath conflict krega.
+kyonki / pe bhi ye open hona chahiye pr vo home ke liye reserve hota hai.
+
+agr original app ke page ko delet krenge to ye chal jaaega.

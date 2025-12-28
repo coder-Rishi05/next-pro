@@ -8,12 +8,13 @@ export default async function Home({ params, searchParams }) {
     /*
 
     these are empty objects
-    seach params get value when we write in url 
+    search params get value when we write in url 
     ex: 
     http://localhost:3000/?name=Rishabh&age=21
     {name: 'Rishabh', age: '21'}
 
     these resiseds in every components.
+    aur inko hm child folders ko as props bhej skte han.
 
     
 
