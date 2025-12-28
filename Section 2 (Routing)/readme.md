@@ -327,3 +327,68 @@ root level pe optional catch wala route define krenge to vo / route ke sath conf
 kyonki / pe bhi ye open hona chahiye pr vo home ke liye reserve hota hai.
 
 agr original app ke page ko delet krenge to ye chal jaaega.
+
+### Reusable Layouts in Next (node s2 ep 6)
+
+- creating common layouts ex: header footer navbar etc which are common on all the pages.
+- for this we have a default js file layout.js
+- the layout.js file code render on all the routes which ever we use.
+- this is basically the root file where our other js files code render as inside children prop.
+
+ex :
+
+```js
+return (
+  <html lang="en">
+    <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <h1>Root layout</h1>
+      {children}
+    </body>
+  </html>
+);
+```
+
+- here we can write our header and footer and they will render on all the pages.
+
+```js
+return (
+  <html lang="en">
+    <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <header className="bg-white/50 text-black">header</header>
+      <h1>Root layout</h1>
+      {children}
+
+      <footer className="bg-teal-500 text-black">footer</footer>
+    </body>
+  </html>
+);
+```
+
+### adding layout.js inside another route
+
+same we can do for service folder inside which if i want top bottom.
+
+services
+page.js
+
+```js
+import React from "react";
+
+const Serviceslayout = ({ children }) => {
+  return (
+    <div>
+      {children}
+      <h1>This is services layout</h1>
+    </div>
+  );
+};
+
+export default Serviceslayout;
+```
+
+- now this serviceLayout will found on evry child components of the services.
+- we cant have HTML tag inside a layout.js which is not on root level.
+- hm meta deta `title` ko directly nhi likhenge.
+
+
+# 
