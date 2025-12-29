@@ -113,4 +113,73 @@ export default () => {
 - hm sirf dunamic pages pe hi not found alg dikha skte han static pe nhi kyonk ye hmsesha root not found ko hi use kreg.
 - isme koi params nhi hota.
 
-to make it so we use 'use client on the page'
+to make it so we use 'use client'  on the page'
+
+### Route Groups
+
+we have 4 route pages
+    about
+    blog
+    files
+    services
+
+now we can break these 4 into 2 parts
+breaking large folders intp logical categories
+- marketing
+    about
+    services
+
+now i cant directly acees my about and services page as i have to use marketing/about now.
+
+to fix this issue like we don't need to write marketing we can use route groups.
+
+to do this rename the folder as `(marketing)`   
+
+now i can simply access to my blogs without writing.
+
+we can also set header and footer diffrent for marketing and application iske liye layout.js ki copy dono folder me daal denge and root layout se header footer hta denge
+
+```js
+
+// application
+
+export const metadata = {
+  title: `application`,
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <>
+      <header className="bg-white/50 text-black">application header</header>
+      <h1>Root layout</h1>
+      {children}
+
+      <footer className="bg-teal-500 text-black">application footer</footer>
+    </>
+  );
+}
+
+
+// marketing
+
+export const metadata = {
+  title: `Marketing`,
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <>
+      <header className="bg-white/50 text-black">Marketing header</header>
+      <h1>Root layout</h1>
+      {children}
+
+      <footer className="bg-teal-500 text-black">Marketing footer</footer>
+    </>
+  );
+}
+
+```
+and root page pe header footer nhi honge uspe show krne ke liye hm root page.js ko application ya marketing folder me daal skte han.
+
+--- 
+
