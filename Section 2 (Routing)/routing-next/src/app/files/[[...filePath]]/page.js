@@ -1,5 +1,9 @@
 import React from "react";
 
+export const metadata = {
+  title: "Files",
+};
+
 async function File({ params }) {
   console.log(await params);
   const { filePath } = await params;

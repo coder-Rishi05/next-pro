@@ -1,5 +1,9 @@
 import React from "react";
 
+export const metadata = {
+  title: "Blogs inside child number",
+};
+
 async function page1({ params }) {
   console.log(await params);
   const { blog } = await params;
