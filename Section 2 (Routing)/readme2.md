@@ -92,11 +92,11 @@ if (!/^\d+$/.test(blog)) {
   return notFound();
 }
 ```
+
 - if we want to create a custom notFound page in nextjs then we can create a file name
-    ` not-found.js` this file name necessary to be like this
+  ` not-found.js` this file name necessary to be like this
 
 ```js
-
 import React from "react";
 
 export default () => {
@@ -106,34 +106,34 @@ export default () => {
     </div>
   );
 };
-
 ```
 
 - now it will trigger evry time we get error not found.
 - hm sirf dunamic pages pe hi not found alg dikha skte han static pe nhi kyonk ye hmsesha root not found ko hi use kreg.
 - isme koi params nhi hota.
 
-to make it so we use 'use client'  on the page'
+to make it so we use 'use client' on the page'
 
-### Route Groups
+### Route Groups (s2 : ep9)
 
 we have 4 route pages
-    about
-    blog
-    files
-    services
+about
+blog
+files
+services
 
 now we can break these 4 into 2 parts
 breaking large folders intp logical categories
+
 - marketing
-    about
-    services
+  about
+  services
 
 now i cant directly acees my about and services page as i have to use marketing/about now.
 
 to fix this issue like we don't need to write marketing we can use route groups.
 
-to do this rename the folder as `(marketing)`   
+to do this rename the folder as `(marketing)`
 
 now i can simply access to my blogs without writing.
 
@@ -179,7 +179,38 @@ export default function RootLayout({ children }) {
 }
 
 ```
+
 and root page pe header footer nhi honge uspe show krne ke liye hm root page.js ko application ya marketing folder me daal skte han.
 
---- 
+---
 
+### Private folders (s2 : ep10)
+
+vo folders jo hm nhi chhate ki page na bne means routing me aaye.
+ex:
+
+```bash
+  components
+    page.js
+```
+
+currently this will be a route but if i chnage its name \_components now it will not be a route anymore.
+
+```bash
+    _components
+      page.js
+```
+
+now it is a private folder and its route will not be created.
+
+but if i want to create a folder with `_` then i can use `%5F` instead `_` in folder name and then i can acess that folder with `_`
+
+ex:
+
+```bash
+    %5Fcomponents
+      page.js
+```
+
+now it is not a private route.
+but this will be accessed by its name in home routes 
