@@ -3,3 +3,7 @@
 syllabus link : https://procodrr.com/nextjs/
 
 github repo : https://github.com/procodrr/nextjs-course
+
+--- 
+
+- completed till section : 2 routing
